@@ -1,0 +1,223 @@
+---
+
+bodies:
+  - name: origin
+    color: yellow
+    size: 3
+    markerLength: 4
+
+  - name: earth
+    size: 4
+    color: 'blue'
+    sphereSegments: 320
+    startPosition: 0
+    orbitalSpeed: -0.0002479160869310127
+    rotationalSpeed: 2301.1694948647196
+    tiltA: -23.439062
+    tiltB: 0.26
+    markerLength: 5
+    orbit:
+      radius: 37.8453
+      color: 'green'
+      primary: origin
+
+  - name: luna
+    size: 1
+    color: 'F4F6F0'
+    startPosition: 0
+    orbitalSpeed: 83.28517
+    markerLength: 2
+    orbit:
+      radius: 10
+      centerA: 0.4
+      centerB: -0.9
+      centerC: 0
+      tiltA: -1.8
+      tiltB: -2.6
+      color: purple
+      primary:
+        startPosision: -3
+        orbitalSpeed: 0
+        orbit:
+          radius: 0
+          centerA: 0.1
+          centerB: 0.2
+          centerC: -0.03
+          tiltA: 2.3
+          tiltB: 2.6
+          color: blue
+          primary:
+            startPosition: 227.35
+            orbitalSpeed: 0.71018840177343
+            orbit:
+              radius: 0.0279352315075
+              centerA: -0.2
+              centerB: 0.1
+              centerC: 0
+              tiltA: 0.1
+              tiltB: 0.2
+              color: cyan
+              primary: earth
+#
+#  - name: sun
+#    size: 5
+#    color: 'FFFF00'
+#    startPosition: 0.1
+#    orbitalSpeed: 6.283185307179586
+#    rotationalSpeed: 83.995
+#    markerLength: 6
+#    orbit:
+#      radius: 100,
+#      centerA: 1.6
+#      centerB: -0.79
+#      centerC: 0
+#      tiltA: 0.25
+#      tiltB: 0
+#      primary:
+#        size: 2
+#        startPosition: 0
+#        orbitalSpeed: 0
+#        orbit:
+#          centerA: 1.4
+#          primary: earth
+#
+#  - name: mercury
+#    size: 1.4
+#    startPosition: -164.7
+#    orbitalSpeed: 26.087623
+#    markerLength: 2
+#    orbit:
+#      radius: 38.710225
+#      centerA: 1.2
+#      centerB: -1.2
+#      tiltA: 4
+#      tiltB: 1.3
+#      primary:
+#        size: 0.7
+#        startPosition: 17.3
+#        orbitalSpeed: -6.283185307179586
+#        orbit:
+#          centerB: 0.4
+#          tiltA: -1.5
+#          tiltB: 0.6
+#          primary:
+#            size: 0.7
+#            orbitalSpeed: 6.283185307179586
+#            orbit:
+#              radius: 100
+#              color: 'FF00FF'
+#              centerA: -9
+#              centerB: 1.1
+#              centerC: -0.1
+#              tiltA: 0.6
+#              primary: earth
+#
+#
+#  - name: venus
+#    orbit:
+#      primary: sun
+#
+#  - name: mars
+#    size: 2.12
+#    color: 'magenta'
+#    startPos: 104
+#    orbit:
+#      radius: 152.677
+#      centerA: 0.2
+#      centerB: -1.5
+#      centerC: 0
+#      tiltA: -0.4
+#      tiltB: -2.2
+#      primary:
+#        size: 2
+#        startPosition: -99.7
+#        orbitalSpeed: 0.398150316
+#        orbit:
+#          radius": 7.44385
+#          color: 'cyan'
+#          centerA": -0.2
+#          centerB: -0.7
+#          tiltA: -0.1
+#          tiltB: -0.325
+#          primary:
+#            size: 2
+#            startPosition: 0.45
+#            orbitalSpeed: 6.283185307179586
+#            orbit:
+#              radius: 100
+#              color: 'green'
+#              centerA: 12
+#              centerB: -20.5
+#              centerC: -0.5
+#              tiltA: -1.45
+#              tiltB: 0.5
+#              primary: earth
+#
+#
+#  - name: phobos
+#    orbit:
+#      primary: sun
+#
+#  - name: deimos
+#    orbit:
+#      primary: sun
+#
+#  - name: jupiter
+#    size: 7.5
+#    color: 'CDC2B2'
+#    startPosition: 36.5
+#    orbitalSpeed: 0.529908
+#    orbit:
+#      radius: 520.4
+#      centerA: -25
+#      centerB: -45
+#      centerC: 0
+#      tiltA: 0.9
+#      tiltB: -0.7
+#      color: cyan
+#      primary:
+#        size: 1,
+#        color: 'CDC2B2'
+#        startPosition: 5
+#        orbitalSpeed: -6.283185307179586
+#        orbit:
+#          radius: 15
+#          centerA: 2
+#          tiltA: -0.25
+#          tiltB: 0.4
+#          primary: sun
+#
+#  - name: saturn
+#    size: 6.5
+#    color: 'A79662'
+#    startPosition: 232.85
+#    orbitalSpeed: 0.213524
+#    orbit:
+#      radius: 958.2
+#      color: 'magenta'
+#      centerA: 50
+#      centerB: 35
+#      tiltA: -1.8
+#      tiltB: 0.3
+#      primary: sun
+#
+#stars:
+#  - label: Polaris
+#    rightAscension: "02h31m49.09s"
+#    declination: "89d15m50.8s"
+#
+#  - label: Vega
+#    rightAscension: "18h36m56.33635s"
+#    declination: "38d47m01.2802s"
+#
+#  - label: Thuban
+#    rightAscension: "14h04m23.3498s"
+#    declination: "64d22m33.062s"
+#
+#  - label: Deneb Algedi
+#    rightAscension: "21h47m02.44424s"
+#    declination: "-16d07m38.2335s"
+#
+#  - label: Mu Psc
+#    rightAscension: "01h30m11.56"
+#    declination: "06d08m35.9"

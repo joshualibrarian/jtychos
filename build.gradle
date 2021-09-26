@@ -14,7 +14,7 @@ repositories {
 }
 
 ext {
-    junitVersion = '5.7.1'
+    junitVersion = '5.7.2'
 }
 
 sourceCompatibility = '14'
@@ -31,7 +31,7 @@ application {
 
 javafx {
     version = '12.0.2'
-    modules = ['javafx.controls', 'javafx.fxml', 'javafx.web']
+    modules = ['javafx.controls']
 }
 
 dependencies {
@@ -40,9 +40,12 @@ dependencies {
     implementation('net.synedra:validatorfx:0.1.13') {
         exclude(group: 'org.openjfx')
     }
+
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.12.5'
+    implementation 'com.github.gbenroscience:parser-ng:0.1.5'
+
     implementation('org.kordamp.ikonli:ikonli-javafx:12.2.0')
     implementation('org.kordamp.bootstrapfx:bootstrapfx-core:0.4.0')
-    implementation('eu.hansolo:tilesfx:11.48')
     implementation 'org.projectlombok:lombok:1.18.20'
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")

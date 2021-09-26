@@ -1,42 +1,109 @@
 package space.readingrainbow.tychos.simulator;
 
-import javafx.geometry.Point3D;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.*;
+import javafx.scene.paint.Color;
+import javafx.util.Duration;
 import lombok.Getter;
-import space.readingrainbow.tychos.simulator.stars.Constellation;
+import lombok.extern.java.Log;
 
-import java.util.List;
+import java.time.Clock;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.util.logging.Level;
 
+@Log
 public class Simulator {
-    Point3D origin;
-    Barycenter barycenter;
-    Earth earth;
-    Luna luna;
-    List<Constellation> constellations;
+    public static Instant SHACK_EPOCH = Instant.parse("2000-06-20T12:00:00Z");
 
-    Group group;
+    CelestialConfig config;
+
+    Group root;
+    NavigableCamera camera;
     @Getter Scene scene;
 
-    public Simulator() {
-        origin = new Point3D(0, 0, 0);
 
-        barycenter = new Barycenter(origin);
-        earth = new Earth(barycenter);
-        luna = new Luna(earth);
+    double speedFactor;
+    Instant utcTime;
+    @Getter DoubleProperty state;
+    Timeline timeline;
 
-        group = new Group();
-        group.getChildren().add(barycenter);
-        group.getChildren().add(earth);
-        group.getChildren().add(luna);
+    public Simulator(CelestialConfig config) {
+        this.config = config;
+        root = new Group();
 
-        scene = new Scene(group, 500, 500);
+        state = new SimpleDoubleProperty(0);
 
-        Camera camera = new PerspectiveCamera();
-        scene.setCamera(camera);
+        for (CelestialPoint body : config.bodies()) {
+            body.state().bind(state);
+            root.getChildren().add(body);
+        }
+
+        scene = new Scene(root, 1000, 1000, Color.BLACK);
+//        scene.setOnKeyPressed(event -> {
+//            stepForward(100);
+//        });
+        camera = new NavigableCamera(scene);
+//        Clock.tick(Clock.systemUTC(), Duration.ofMillis(1));
+
 
     }
 
-    void initConstellations() {
+    public Instant timeInUTC() {
+        return null;
+    }
+
+    public void timeInUTC(Instant instantToSet) {
+
+    }
+
+    public void moveToDate(Instant instant) {
+        for(CelestialPoint point : config.bodies()) {
+
+        }
+    }
+
+    public void positionToDays(double position) {
+//        position +=
+    }
+
+    public Instant posToTime(double position) {
+        position += config.solarHour * 12;
+        double days = position/config.solarDay - Math.floor(position / config.solarDay);
+        double hours = Math.floor(days * 24);
+        double minutes = Math.floor((days * 24 - hours) * 60);
+        double seconds = Math.floor(((days * 24 - hours) * 60 - minutes) * 60);
+//        LocalDateTime.of()
+
+//        let hh = ("0" + hours).slice(-2);
+//        let mm = ("0" + minutes).slice(-2);
+//        let ss = ("0" + seconds).slice(-2);
+        return null;
+    }
+
+    public void timeToPos(Instant value) {
+
+    }
+
+    public void stepForward(double value) {
+        state.setValue(state.getValue() + value);
+        System.out.println("test");
+        System.out.println(state.get());
+        log.log(Level.ALL, "stepForward()!");
+    }
+
+    public void play() {
+        timeline = new Timeline(
+                new KeyFrame(Duration.millis(100), event -> {
+                    state.setValue(state.getValue() + 10);
+                }));
+
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
     }
 
 }
